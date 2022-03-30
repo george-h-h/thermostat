@@ -27,7 +27,7 @@ describe("get temperature", () => {
     expect(thermo.getTemperature()).toEqual(25);
   });
   it("will not increase above 32 when PSM is off", () => {
-    thermo.setPowerSavingMode(false);
+    thermo.setPowerSavingMode();
     for (let i = 0; i < 10; i++) {
       thermo.up();
     }
@@ -43,7 +43,7 @@ describe("get temperature", () => {
       thermo.down();
     }
     expect(thermo.getEnergyUsage()).toEqual("low-usage");
-    
+
     for (let i = 0; i < 20; i++) {
       thermo.up();
     }
