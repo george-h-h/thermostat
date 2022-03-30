@@ -1,7 +1,17 @@
+import WeatherApi from "./weather.js";
+
 class Thermostat {
-  constructor() {
+  constructor(weather) {
+    this.weather = weather;
     this.temperature = 20;
     this.powerSavingMode = true;
+  }
+
+  setCity(city) {
+    this.weather.fetchWeatherData(city, (weatherData) => {
+      console.log(weatherData.main);
+      this.temperature = weatherData.main.temp.round;
+    });
   }
 
   getTemperature() {
@@ -46,4 +56,10 @@ class Thermostat {
   }
 }
 
-module.exports = Thermostat;
+const weather = new WeatherApi();
+const thermo = new Thermostat(weather);
+
+thermo.setCity("London");
+console.log(thermo.getTemperature());
+
+// module.exports = Thermostat;

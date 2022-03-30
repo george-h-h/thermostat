@@ -1,9 +1,10 @@
+
 import "dotenv/config";
 import express from "express";
 import got from "got";
 const apiKey = process.env.WEATHER_KEY;
 
-class WeatherApi {
+export default class WeatherApi {
   fetchWeatherData(city, callback) {
     const place = city;
     const apiUrl = `http://api.openweathermap.org/data/2.5/weather?units=metric&q=${place}&appid=${apiKey}`;
@@ -14,7 +15,9 @@ class WeatherApi {
   }
 }
 
-const weather = new WeatherApi();
-weather.fetchWeatherData("New Delhi", (weatherData) => {
-  console.log(weatherData.main);
-});
+// const weather = new WeatherApi();
+// weather.fetchWeatherData("New Delhi", (weatherData) => {
+//   console.log(weatherData.main);
+// });
+
+module.exports = WeatherApi;

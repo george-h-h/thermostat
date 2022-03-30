@@ -1,7 +1,10 @@
 const Thermostat = require("./thermostat");
 
+
 describe("get temperature", () => {
-  const thermo = new Thermostat();
+  // const weatherDouble = {fetchWeatherData: () => 15 }
+
+  const thermo = new Thermostat(weatherDouble);
   it("initiates with a default temperature of 20", () => {
     expect(thermo.getTemperature()).toEqual(20);
   });
@@ -49,4 +52,7 @@ describe("get temperature", () => {
     }
     expect(thermo.getEnergyUsage()).toEqual("high-usage");
   });
+  it("uses the weather API to set the temperature to London", () => {
+
+  })
 });
