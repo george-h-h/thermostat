@@ -1,7 +1,6 @@
-
 import "dotenv/config";
-import express from "express";
 import got from "got";
+
 const apiKey = process.env.WEATHER_KEY;
 
 export default class WeatherApi {
@@ -20,4 +19,4 @@ export default class WeatherApi {
 //   console.log(weatherData.main);
 // });
 
-module.exports = WeatherApi;
+// module.exports = WeatherApi;

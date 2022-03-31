@@ -1,10 +1,11 @@
-const Thermostat = require("./thermostat");
-
+// const Thermostat = require("./thermostat");
+import Thermostat from "./thermostat"
 
 describe("get temperature", () => {
   // const weatherDouble = {fetchWeatherData: () => 15 }
 
   const thermo = new Thermostat(weatherDouble);
+  
   it("initiates with a default temperature of 20", () => {
     expect(thermo.getTemperature()).toEqual(20);
   });
